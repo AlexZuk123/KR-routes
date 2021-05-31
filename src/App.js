@@ -1,23 +1,60 @@
-import logo from './logo.svg';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
+
+function MainKR(){
+  return(
+    <div>
+      <h1>Місто Кривий Ріг</h1>
+      <img src="https://kr.gov.ua/themes/metropol/share/images/img/slide420/1024/slide1.jpg"/>
+      <p>Кривий Ріг розташований у помірних широтах. По відношенню до екватору – у північній півкулі, по відношенню до Грінвічського (нульового) меридіану – у східній півкулі. Так як місто витягнуте у майже субмеридіональному напрямі на кілька десятків кілометрів, то єдиних координат немає. Крайніми точками міста за усіма чотирма сторонами світу є лише два об’єкти – хвостосховища Інгулецького (координати – 47°36' північної широти) та Північного гірничо-збагачувальних комбінатів (координати - 48°12' північної широти).
+Місто розтягнуте з північного-сходу на південний-захід на пів градуса – 0°36'. Широтна розтягнутість менша (0°28'). За широтою місто вузьке. Крайньою західною точкою є сучасна станція Інгулець з координатами 33°08' східної довготи. Крайня східна точка знаходиться в районі лісорозсаднику в селищі Довгинцевому – 33°34' східної довготи.
+Майже по центру місто розділяє паралель 48°00'. Точне знання географічного положення міста дозволяє оцінити віддаленість Кривого Рогу від деяких об’єктів на Землі. Від міста (по прямій на карті) до: північного полюса – 4662 км, південного полюса – 15318 км, Джомолунгми (найвищої точки планети) – 5036 км, Києва – 345 км, Лондона – 2160 км, Москви – 962 км, Вашингтона – 8650 км. З географічним положенням пов’язана часова позиція міста. Кривий Ріг розташований у другому часовому поясі. Як і у державі, по місту діє поясний та декретний час (за яким посезонно переводиться годинникова стрілка на зимовий та літній часи).
+48-ма паралель – це єдина паралель з округленим значенням. Вона дозволяє умовно ділити Кривий Ріг на дві половини - Північну (на північ від паралелі) та Південну (на південь) Проходить паралель через село Мар’янівку, селище Верабове, північну частину Глеюватського кар’єру ЦГЗК, виконком Жовтневої у місті ради, нижню частину Кресівського водосховища, торговельний центр на мікрорайоні 4-Зарічний та середину мікрорайону 5-Зарічний.</p>
+    </div>
+  );
+}
+
+function Sight(){
+  return(
+    <div>
+      <h1>Криворожский ботанический сад</h1>
+      <img src="https://krasintour.ua/_pu/0/53527740.jpg"/>
+      <h2>Улица Маршака, 50</h2>
+    </div>
+  );
+}
+
+function OtherSights(){
+  return(
+    <div>
+    <h1>Парк имени газеты Правда</h1>
+    <img src="https://lh3.googleusercontent.com/proxy/j3mW2XsRAEf9XV-6Y_sm8kQECl2jil6iUBauc_htHe-jETsCvviUiVLpKDfjZNXVqUn8PSywAJHY35OMYzh4Ywezx_MkhKbqXFMTmASvaqTa7TtUA_cEgVhAYlC2mctkVMN9hnvByrYmxg13znYJ"/>
+    <h1>Парк Героев</h1>
+    <img src="https://yesyes.ua/uploads//users/1436/portfolio/f679170629869c6608295ec869aea49a_c1.jpg"/>
+    <h1>Цветочные часы</h1>
+    <img src="https://lh3.googleusercontent.com/proxy/iGY1bQFyQzjvStcq_dwoWTok8Zol1DqAMdO3Ub8_7qkYjNS5hQS1V_vo0en0ggvRRLJWQIf2StW_KK8Dg65n-mh-qeagjZZXX0g"/>
+    <h1>Скала Орлиное гнездо</h1>
+    <img src="http://www.shukach.com/sites/default/files/imagecache/node-gallery-display/post_images/14/p70425-143117-198376.jpg"/>
+  </div>
+  );
+}
+
+function NotFound() {
+  return <h2>Not found</h2>;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={MainKR}/>
+          <Route path="/about" component={Sight}/>
+          <Route path="/other" component={OtherSights}/>
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
     </div>
   );
 }
